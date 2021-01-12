@@ -1,4 +1,4 @@
-import { Instruction, INUMBER, IOP1, IOP2, IOP3, IVAR, IVARNAME, IEXPR, IMEMBER, IARRAY } from './instruction';
+import { Instruction, INUMBER, IOP1, IOP2, IOP3, IVAR, IVARNAME, IEXPR, IMEMBER, IARRAY } from './instruction.js';
 
 export default function simplify(tokens, unaryOps, binaryOps, ternaryOps, values) {
   var nstack = [];

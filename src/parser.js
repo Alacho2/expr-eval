@@ -1,7 +1,7 @@
-import { TEOF } from './token';
-import { TokenStream } from './token-stream';
-import { ParserState } from './parser-state';
-import { Expression } from './expression';
+import { TEOF } from './token.js';
+import { TokenStream } from './token-stream.js';
+import { ParserState } from './parser-state.js';
+import { Expression } from './expression.js';
 import {
   add,
   sub,
@@ -50,7 +50,7 @@ import {
   log1p,
   log2,
   sum
-} from './functions';
+} from './functions.js';
 
 export function Parser(options) {
   this.options = options || {};

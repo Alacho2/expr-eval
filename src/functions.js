@@ -1,23 +1,26 @@
-import contains from './contains';
+import contains from './contains.js';
+
+import BigNumber from 'bignumber.js';
 
 export function add(a, b) {
-  return Number(a) + Number(b);
+  // return Number(a) + Number(b);
+  return new BigNumber(a).plus(b).toNumber();
 }
 
 export function sub(a, b) {
-  return a - b;
+  return new BigNumber(a).minus(b).toNumber();
 }
 
 export function mul(a, b) {
-  return a * b;
+  return new BigNumber(a).times(b).toNumber();
 }
 
 export function div(a, b) {
-  return a / b;
+  return new BigNumber(a).div(b).toNumber();
 }
 
 export function mod(a, b) {
-  return a % b;
+  return new BigNumber(a).mod(b).toNumber();
 }
 
 export function concat(a, b) {
