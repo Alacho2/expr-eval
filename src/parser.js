@@ -118,21 +118,11 @@ export function Parser(options) {
   this.functions = {
     random: random,
     fac: factorial,
-    min: min,
-    max: max,
     hypot: Math.hypot || hypot,
     pyt: Math.hypot || hypot, // backward compat
     pow: Math.pow,
     atan2: Math.atan2,
-    'if': condition,
     gamma: gamma,
-    roundTo: roundTo,
-    map: arrayMap,
-    fold: arrayFold,
-    filter: arrayFilter,
-    indexOf: stringOrArrayIndexOf,
-    join: arrayJoin,
-    sum: sum
   };
 
   this.consts = {

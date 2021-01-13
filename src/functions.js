@@ -3,7 +3,6 @@ import contains from './contains.js';
 import BigNumber from 'bignumber.js';
 
 export function add(a, b) {
-  // return Number(a) + Number(b);
   return new BigNumber(a).plus(b).toNumber();
 }
 
@@ -67,38 +66,38 @@ export function inOperator(a, b) {
 }
 
 export function sinh(a) {
-  return ((Math.exp(a) - Math.exp(-a)) / 2);
+  return new BigNumber(BigNumber(Math.exp(a)).minus(Math.exp(-a)).div(2).toNumber());
 }
 
 export function cosh(a) {
-  return ((Math.exp(a) + Math.exp(-a)) / 2);
+  return new BigNumber(BigNumber(Math.exp(a)).plus(Math.exp(-a)).div(2).toNumber());
 }
 
 export function tanh(a) {
   if (a === Infinity) return 1;
   if (a === -Infinity) return -1;
-  return (Math.exp(a) - Math.exp(-a)) / (Math.exp(a) + Math.exp(-a));
+  return new BigNumber(BigNumber(Math.exp(a)).minus(Math.exp(-a)).div(BigNumber(Math.exp(a)).plus(Math.exp(-a)))).toNumber();
 }
 
 export function asinh(a) {
   if (a === -Infinity) return a;
-  return Math.log(a + Math.sqrt((a * a) + 1));
+  return Math.log(BigNumber(a).plus(BigNumber(a).times(a).plus(1).sqrt()).toNumber());
 }
 
 export function acosh(a) {
-  return Math.log(a + Math.sqrt((a * a) - 1));
+  return Math.log(BigNumber(a).plus(BigNumber(a).times(a).minus(1).sqrt()).toNumber());
 }
 
 export function atanh(a) {
-  return (Math.log((1 + a) / (1 - a)) / 2);
+  return Math.log(BigNumber(BigNumber(1).plus(a)).div(BigNumber(1).minus(a)).div(2).toNumber());
 }
 
 export function log10(a) {
-  return Math.log(a) * Math.LOG10E;
+  return new BigNumber(Math.log(a)).times(Math.LOG10E).toNumber();
 }
 
 export function neg(a) {
-  return -a;
+  return new BigNumber(a).negated().toNumber();
 }
 
 export function not(a) {
