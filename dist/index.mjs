@@ -1,4 +1,4 @@
-import { BigNumber } from 'bignumber.js';
+import BigNumber from 'bignumber.js';
 
 var INUMBER = 'INUMBER';
 var IOP1 = 'IOP1';
