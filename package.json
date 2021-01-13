@@ -8,9 +8,10 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bignumber.js": "9.0.1"
+  },
   "devDependencies": {
-    "bignumber.js": "9.0.1",
     "eslint": "7.17.0",
     "eslint-config-semistandard": "15.0.1",
     "eslint-config-standard": "16.0.2",
