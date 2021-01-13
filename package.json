@@ -2,7 +2,6 @@
   "name": "expr-eval",
   "version": "2.0.2",
   "description": "Mathematical expression evaluator",
-  "type": "module",
   "main": "dist/bundle.js",
   "module": "dist/index.mjs",
   "typings": "parser.d.ts",
