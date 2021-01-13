@@ -1,12 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('bignumber.js')) :
   typeof define === 'function' && define.amd ? define(['exports', 'bignumber.js'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.exprEval = {}, global.BigNumber));
-}(this, (function (exports, BigNumber) { 'use strict';
-
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var BigNumber__default = /*#__PURE__*/_interopDefaultLegacy(BigNumber);
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.exprEval = {}, global.bignumber_js));
+}(this, (function (exports, bignumber_js) { 'use strict';
 
   var INUMBER = 'INUMBER';
   var IOP1 = 'IOP1';
@@ -1332,23 +1328,23 @@
   };
 
   function add(a, b) {
-    return new BigNumber__default['default'](a).plus(b).toNumber();
+    return new bignumber_js.BigNumber(a).plus(b).toNumber();
   }
 
   function sub(a, b) {
-    return new BigNumber__default['default'](a).minus(b).toNumber();
+    return new bignumber_js.BigNumber(a).minus(b).toNumber();
   }
 
   function mul(a, b) {
-    return new BigNumber__default['default'](a).times(b).toNumber();
+    return new bignumber_js.BigNumber(a).times(b).toNumber();
   }
 
   function div(a, b) {
-    return new BigNumber__default['default'](a).div(b).toNumber();
+    return new bignumber_js.BigNumber(a).div(b).toNumber();
   }
 
   function mod(a, b) {
-    return new BigNumber__default['default'](a).mod(b).toNumber();
+    return new bignumber_js.BigNumber(a).mod(b).toNumber();
   }
 
   function concat(a, b) {
@@ -1395,38 +1391,38 @@
   }
 
   function sinh(a) {
-    return new BigNumber__default['default'](BigNumber__default['default'](Math.exp(a)).minus(Math.exp(-a)).div(2).toNumber());
+    return new bignumber_js.BigNumber(bignumber_js.BigNumber(Math.exp(a)).minus(Math.exp(-a)).div(2).toNumber());
   }
 
   function cosh(a) {
-    return new BigNumber__default['default'](BigNumber__default['default'](Math.exp(a)).plus(Math.exp(-a)).div(2).toNumber());
+    return new bignumber_js.BigNumber(bignumber_js.BigNumber(Math.exp(a)).plus(Math.exp(-a)).div(2).toNumber());
   }
 
   function tanh(a) {
     if (a === Infinity) return 1;
     if (a === -Infinity) return -1;
-    return new BigNumber__default['default'](BigNumber__default['default'](Math.exp(a)).minus(Math.exp(-a)).div(BigNumber__default['default'](Math.exp(a)).plus(Math.exp(-a)))).toNumber();
+    return new bignumber_js.BigNumber(bignumber_js.BigNumber(Math.exp(a)).minus(Math.exp(-a)).div(bignumber_js.BigNumber(Math.exp(a)).plus(Math.exp(-a)))).toNumber();
   }
 
   function asinh(a) {
     if (a === -Infinity) return a;
-    return Math.log(BigNumber__default['default'](a).plus(BigNumber__default['default'](a).times(a).plus(1).sqrt()).toNumber());
+    return Math.log(bignumber_js.BigNumber(a).plus(bignumber_js.BigNumber(a).times(a).plus(1).sqrt()).toNumber());
   }
 
   function acosh(a) {
-    return Math.log(BigNumber__default['default'](a).plus(BigNumber__default['default'](a).times(a).minus(1).sqrt()).toNumber());
+    return Math.log(bignumber_js.BigNumber(a).plus(bignumber_js.BigNumber(a).times(a).minus(1).sqrt()).toNumber());
   }
 
   function atanh(a) {
-    return Math.log(BigNumber__default['default'](BigNumber__default['default'](1).plus(a)).div(BigNumber__default['default'](1).minus(a)).div(2).toNumber());
+    return Math.log(bignumber_js.BigNumber(bignumber_js.BigNumber(1).plus(a)).div(bignumber_js.BigNumber(1).minus(a)).div(2).toNumber());
   }
 
   function log10(a) {
-    return new BigNumber__default['default'](Math.log(a)).times(Math.LOG10E).toNumber();
+    return new bignumber_js.BigNumber(Math.log(a)).times(Math.LOG10E).toNumber();
   }
 
   function neg(a) {
-    return new BigNumber__default['default'](a).negated().toNumber();
+    return new bignumber_js.BigNumber(a).negated().toNumber();
   }
 
   function not(a) {

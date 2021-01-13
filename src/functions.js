@@ -1,6 +1,6 @@
 import contains from './contains.js';
 
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 
 export function add(a, b) {
   return new BigNumber(a).plus(b).toNumber();
