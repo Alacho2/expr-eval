@@ -1,5 +1,5 @@
 import rollupConfig from './rollup.config';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 
 rollupConfig.plugins = [ terser() ];
 rollupConfig.output.file = 'dist/bundle.min.js';

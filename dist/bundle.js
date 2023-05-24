@@ -2,11 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('bignumber.js')) :
   typeof define === 'function' && define.amd ? define(['exports', 'bignumber.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.exprEval = {}, global.BigNumber));
-}(this, (function (exports, BigNumber) { 'use strict';
-
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var BigNumber__default = /*#__PURE__*/_interopDefaultLegacy(BigNumber);
+})(this, (function (exports, BigNumber) { 'use strict';
 
   var INUMBER = 'INUMBER';
   var IOP1 = 'IOP1';
@@ -200,6 +196,9 @@
           nstack.push(f(resolveExpression(n1, values), resolveExpression(n2, values), resolveExpression(n3, values)));
         }
       } else if (type === IVAR) {
+        if (/^__proto__|prototype|constructor$/.test(item.value)) {
+          throw new Error('prototype access detected');
+        }
         if (item.value in expr.functions) {
           nstack.push(expr.functions[item.value]);
         } else if (item.value in expr.unaryOps && expr.parser.isOperatorEnabled(item.value)) {
@@ -1332,23 +1331,23 @@
   };
 
   function add(a, b) {
-    return new BigNumber__default['default'](a).plus(b).toNumber();
+    return new BigNumber(a).plus(b).toNumber();
   }
 
   function sub(a, b) {
-    return new BigNumber__default['default'](a).minus(b).toNumber();
+    return new BigNumber(a).minus(b).toNumber();
   }
 
   function mul(a, b) {
-    return new BigNumber__default['default'](a).times(b).toNumber();
+    return new BigNumber(a).times(b).toNumber();
   }
 
   function div(a, b) {
-    return new BigNumber__default['default'](a).div(b).toNumber();
+    return new BigNumber(a).div(b).toNumber();
   }
 
   function mod(a, b) {
-    return new BigNumber__default['default'](a).mod(b).toNumber();
+    return new BigNumber(a).mod(b).toNumber();
   }
 
   function concat(a, b) {
@@ -1395,38 +1394,38 @@
   }
 
   function sinh(a) {
-    return new BigNumber__default['default'](BigNumber__default['default'](Math.exp(a)).minus(Math.exp(-a)).div(2).toNumber());
+    return new BigNumber(BigNumber(Math.exp(a)).minus(Math.exp(-a)).div(2).toNumber());
   }
 
   function cosh(a) {
-    return new BigNumber__default['default'](BigNumber__default['default'](Math.exp(a)).plus(Math.exp(-a)).div(2).toNumber());
+    return new BigNumber(BigNumber(Math.exp(a)).plus(Math.exp(-a)).div(2).toNumber());
   }
 
   function tanh(a) {
     if (a === Infinity) return 1;
     if (a === -Infinity) return -1;
-    return new BigNumber__default['default'](BigNumber__default['default'](Math.exp(a)).minus(Math.exp(-a)).div(BigNumber__default['default'](Math.exp(a)).plus(Math.exp(-a)))).toNumber();
+    return new BigNumber(BigNumber(Math.exp(a)).minus(Math.exp(-a)).div(BigNumber(Math.exp(a)).plus(Math.exp(-a)))).toNumber();
   }
 
   function asinh(a) {
     if (a === -Infinity) return a;
-    return Math.log(BigNumber__default['default'](a).plus(BigNumber__default['default'](a).times(a).plus(1).sqrt()).toNumber());
+    return Math.log(BigNumber(a).plus(BigNumber(a).times(a).plus(1).sqrt()).toNumber());
   }
 
   function acosh(a) {
-    return Math.log(BigNumber__default['default'](a).plus(BigNumber__default['default'](a).times(a).minus(1).sqrt()).toNumber());
+    return Math.log(BigNumber(a).plus(BigNumber(a).times(a).minus(1).sqrt()).toNumber());
   }
 
   function atanh(a) {
-    return Math.log(BigNumber__default['default'](BigNumber__default['default'](1).plus(a)).div(BigNumber__default['default'](1).minus(a)).div(2).toNumber());
+    return Math.log(BigNumber(BigNumber(1).plus(a)).div(BigNumber(1).minus(a)).div(2).toNumber());
   }
 
   function log10(a) {
-    return new BigNumber__default['default'](Math.log(a)).times(Math.LOG10E).toNumber();
+    return new BigNumber(Math.log(a)).times(Math.LOG10E).toNumber();
   }
 
   function neg(a) {
-    return new BigNumber__default['default'](a).negated().toNumber();
+    return new BigNumber(a).negated().toNumber();
   }
 
   function not(a) {
@@ -1850,6 +1849,7 @@
    but don't feel like you have to let me know or ask permission.
   */
 
+
   // Backwards compatibility
   var index = {
     Parser: Parser,
@@ -1862,4 +1862,4 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));

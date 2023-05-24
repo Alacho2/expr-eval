@@ -9,27 +9,26 @@
     "test": "test"
   },
   "dependencies": {
-    "bignumber.js": "9.0.1"
+    "bignumber.js": "9.1.1"
   },
   "devDependencies": {
-    "eslint": "7.17.0",
-    "eslint-config-semistandard": "15.0.1",
-    "eslint-config-standard": "16.0.2",
-    "eslint-plugin-import": "2.22.1",
+    "@rollup/plugin-terser": "0.4.3",
+    "eslint": "8.41.0",
+    "eslint-config-semistandard": "17.0.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.27.5",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-standard": "5.0.0",
-    "mocha": "8.2.1",
-    "nyc": "15.1.0",
-    "rollup": "2.36.1",
-    "rollup-plugin-terser": "7.0.2"
+    "mocha": "10.1.0",
+    "rollup": "3.23.0"
   },
   "scripts": {
     "test": "npm run build && mocha",
     "coverage": "npm run build && nyc --reporter=lcov --reporter=text-summary mocha",
     "lint": "eslint index.js src test rollup.config.js rollup-min.config.js",
     "watch": "rollup -c rollup.config.js -w",
-    "build": "rollup -c rollup.config.js && rollup -c rollup-min.config.js && rollup -c rollup-esm.config.js",
+    "build": "rollup -c rollup.config.js --bundleConfigAsCjs && rollup -c rollup-min.config.js --bundleConfigAsCjs && rollup -c rollup-esm.config.js --bundleConfigAsCjs",
     "prepublish": "npm run build"
   },
   "files": [
